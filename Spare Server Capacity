@@ -1,0 +1,28 @@
+TITLE:-Spare Server Capacity
+LEVEL:-EASY
+COMPANY:-Microsoft
+URL:-https://datalemur.com/questions/sql-spare-server-capacity
+
+Question:-
+Microsoft Azure's capacity planning team wants to understand how much data its customers are using, and how much spare capacity is left in each of its 
+data centers. You’re given three tables: customers, data centers, and forecasted_demand.
+
+Write a query to find each data centre’s total unused server capacity. Output the data center id in ascending order and the total spare capacity.
+
+Definitions:
+
+    monthly_capacity is the total monthly server capacity for each centers.
+    monthly_demand is the server demand for each customer.
+	
+Solution:-
+WITH demands AS (
+SELECT datacenter_id, SUM(monthly_demand) AS totalDemand
+FROM forecasted_demand 
+GROUP BY datacenter_id
+)
+
+SELECT datacenters.datacenter_id,
+datacenters.monthly_capacity-demands.totalDemand AS spareCapacity
+FROM demands INNER JOIN datacenters 
+ON demands.datacenter_id=datacenters.datacenter_id
+ORDER BY datacenters.datacenter_id
