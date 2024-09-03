@@ -1,0 +1,20 @@
+TITLE:-Top Rated Businesses
+LEVEL:-EASY
+COMPANY:-Yelp
+URL:-https://datalemur.com/questions/sql-top-businesses
+
+Question:-
+Assume you are given the table below containing information on user reviews. Write a query to obtain the number and percentage of businesses 
+that are top rated. A top-rated busines is defined as one whose reviews contain only 4 or 5 stars.
+
+Output the number of businesses and percentage of top rated businesses rounded to the nearest integer.
+
+Assumption:
+
+    Each business has only one review (which is the business' average rating).
+
+Solution:-
+SELECT 
+SUM(CASE WHEN review_stars>=4 THEN 1 ELSE 0 END) AS business_count,
+ROUND((SUM(CASE WHEN review_stars>=4 THEN 1 ELSE 0 END))*100.0/COUNT(*)) AS top_rated_pct
+FROM reviews
