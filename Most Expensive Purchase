@@ -1,0 +1,15 @@
+TITLE:-Most Expensive Purchase
+LEVEL:-EASY
+COMPANY:-Amazon
+URL:-https://datalemur.com/questions/most-expensive-purchase
+
+Question:-
+Amazon is trying to identify their high-end customers. To do so, they first need your help to write a query that obtains the most expensive purchase made 
+by each customer. Order the results by the most expensive purchase first.
+
+Solution:-
+SELECT customer_id,
+MAX(purchase_amount) AS highestPurchased
+FROM transactions 
+GROUP BY customer_id
+ORDER BY 2 DESC
