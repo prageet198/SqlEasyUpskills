@@ -1,0 +1,13 @@
+TITLE:-Finding Doctors
+LEVEL:-EASY
+COMPANY:-Google
+URL:-https://platform.stratascratch.com/coding/10356-finding-doctors?code_type=1
+
+Question:-
+Find doctors with the last name of 'Johnson' in the employee list. The output should contain both their first and last names.
+
+Solution:-
+SELECT first_name,
+last_name
+FROM employee_list
+WHERE last_name = 'Johnson' AND profession = 'Doctor'
