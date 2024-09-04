@@ -1,0 +1,12 @@
+TITLE:-Find all inspections which are part of an inactive program
+LEVEL:-EASY
+COMPANY:-City of Los Angeles
+URL:-https://platform.stratascratch.com/coding/10277-find-all-inspections-which-are-part-of-an-inactive-program?code_type=1
+
+Question:-
+Find all inspections which are part of an inactive program.
+
+Solution:-
+SELECT *
+from los_angeles_restaurant_health_inspections
+WHERE program_status='INACTIVE'
