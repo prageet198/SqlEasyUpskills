@@ -1,0 +1,15 @@
+TITLE:-Weekly Orders Report
+LEVEL:-EASY
+COMPANY:-Amazon
+URL:-https://platform.stratascratch.com/coding/10363-weekly-orders-report?code_type=1
+
+Question:-
+For each week, find the total number of orders. Include only the orders that are from the first quarter of 2023.
+
+The output should contain 'week' and 'quantity'.
+
+Solution:-
+SELECT week, SUM(quantity) AS total_quantity
+FROM orders_analysis
+WHERE EXTRACT(QUARTER FROM week)=1 AND EXTRACT(YEAR FROM week)=2023
+GROUP BY week
